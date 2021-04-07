@@ -11,7 +11,20 @@ function evenListeners () {
 }
 
 //clases
+class Presupuesto {
+    constructor (presupuesto) {
+        this.presupuesto = Number(presupuesto);
+        this.restante = Number(presupuesto);
+        this.gastos = [];
+    }
+}
+class UI {
 
+
+}
+//intanciar
+const ui = new UI();
+let presupuesto;
 //funciones
 
 function preguntarPresupuesto () {
@@ -28,4 +41,15 @@ function preguntarPresupuesto () {
 
     // Agregarlo en el HTML
     ui.insertarPresupuesto(presupuesto)
+}
+
+function eliminarGastos (e) {
+    if (e.target.classList.contains('borrar-gasto')) {
+        const { id } = e.target.parentElement.dataSet;
+        presupuesto.eliminarGastos(id);
+
+        ui.comprobarPresupuesto(presupuesto)
+        
+    }
+    
 }
